@@ -1,21 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class coin : MonoBehaviour
 {
-
-	private int score = 0; // Puan
-	public float destroyDelay = 1f; // Yok olma gecikme süresi (saniye)
-	void OnCollisionEnter(Collision collision)
+	public float destroyDelay = 0.5f; // Yok olma gecikme süresi (saniye)
+	
+	private void OnTriggerEnter(Collider other)
 	{
 		// Çarpýþtýðýmýz nesnenin etiketini kontrol et
-		if (collision.gameObject.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player"))
 		{
-			// Eðer çarpýþýlan nesnenin etiketi "Collectible" ise, 1 puan ekleyelim
-			score++;
-			Debug.Log("Puan: " + score);
-			// Eðer çarpýþýlan nesnenin etiketi "Player" ise, belirli bir süre sonra yok edelim
 			Invoke("DestroyObject", destroyDelay);
 		}
 	}
@@ -24,4 +20,6 @@ public class coin : MonoBehaviour
 		// Nesneyi yok et
 		Destroy(gameObject);
 	}
+	
+	
 }

@@ -350,6 +350,7 @@
 "Assets/Scripts/ButtonIslemleri.cs"
 "Assets/Scripts/camera.cs"
 "Assets/Scripts/coin.cs"
+"Assets/Scripts/Enemy.cs"
 "Assets/Scripts/Player.cs"
 -langversion:9.0
 
